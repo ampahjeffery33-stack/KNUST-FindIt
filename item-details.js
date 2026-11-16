@@ -17,7 +17,7 @@ if (selectedItem.status === "found") {
 
         <div class="item-image">
             <img 
-                src="${selectedItem.image || 'images/Capture 2.PNG'}"
+                src="${selectedItem.image}"
                 alt="${selectedItem.title}"
             />
         </div>

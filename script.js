@@ -154,6 +154,7 @@ homeDetailButtons.forEach(function(button) {
             category: card.dataset.category,
 
             title: card.querySelector("h3").textContent,
+            image: card.querySelector(".item-image img").src,
 
             details: Array.from(
                 card.querySelectorAll(".item-details p")
