@@ -756,3 +756,10 @@ th {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.logo img{
+    width: 180px;
+    height: 65opx;
+    object-fit: constain;
+    display: block;
+}
