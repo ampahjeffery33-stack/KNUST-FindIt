@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Browse Items | KNUST FindIt</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+
+    <header>
+      <div class="logo">KNUST <span>FindIt</span></div>
+
+      <nav>
+        <a href="index1.html">Home</a>
+        <a href="browse1.html">Browse Items</a>
+        <a href="index1.html?type=lost#reportSection">Report Lost Item</a>
+        <a href="index1.html?type=found#reportSection">Report Found Item</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <div class="user">Welcome, Student</div>
+    </header>
+
+    <!-- Browse Items Section -->
+
+    <main class="browse-section">
+      <!-- Page Heading -->
+
+      <div class="browse-heading">
+        <h1>Browse Lost & Found Items</h1>
+        <p>Find items reported missing or discovered around KNUST campus.</p>
+      </div>
+
+      <!-- Search Bar -->
+
+      <div class="browse-search">
+        <input
+          type="text"
+          id="browseSearch"
+          placeholder="Search for phones, calculators, bags..."
+        />
+
+        <button id="browseSearchButton">Search</button>
+      </div>
+
+      <!-- Filter Section -->
+
+      <div class="filter-section">
+        <div class="filter-group">
+          <label for="statusFilter">Item Status</label>
+
+          <select id="statusFilter">
+            <option value="all">All Items</option>
+            <option value="lost">Lost Items</option>
+            <option value="found">Found Items</option>
+            <option value="returned">Returned</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="categoryFilter">Category</label>
+
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="phone">Phone</option>
+            <option value="calculator">Calculator</option>
+            <option value="id card">ID Card</option>
+            <option value="bag">Bag</option>
+            <option value="books">Books</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Items Display -->
+
+      <div class="browse-items">
+        <h2>Available Reports</h2>
+
+        <div class="browse-items-container">
+          <!-- Found Item -->
+
+          <div class="item-card" data-status="found" data-category="phone">
+            <div class="item-image">
+              <img src="images/Capture 1.PNG" alt="Samsung Galaxy Phone" />
+            </div>
+
+            <div class="item-details">
+              <span class="status found">FOUND</span>
+
+              <h3>Samsung Galaxy Phone</h3>
+
+              <p>Category: Phone</p>
+
+              <p>Location: KNUST Library</p>
+
+              <p>Black Samsung phone found near the entrance.</p>
+
+              <button class="view-details-btn">View Details</button>
+            </div>
+          </div>
+
+          <!-- Lost Item -->
+
+          <div class="item-card" data-status="lost" data-category="calculator">
+            <div class="item-image">
+              <img src="images/Capture 2.PNG" alt="Scientific Calculator" />
+            </div>
+
+            <div class="item-details">
+              <span class="status lost">LOST</span>
+
+              <h3>Scientific Calculator</h3>
+
+              <p>Category: Calculator</p>
+
+              <p>Location: College of Science</p>
+
+              <p>Casio scientific calculator missing after class.</p>
+              <button class="view-details-btn">View Details</button>
+            </div>
+          </div>
+
+          <!-- Found Item -->
+
+          <div class="item-card" data-status="found" data-category="bag">
+            <div class="item-image">
+              <img src="images/capture.png" alt="Black Backpack" />
+            </div>
+
+            <div class="item-details">
+              <span class="status found">FOUND</span>
+
+              <h3>Green Bag</h3>
+
+              <p>Category: Bag</p>
+
+              <p>Location: Commercial Area</p>
+
+              <p>Green bag found near the bus stop.</p>
+              <button class="view-details-btn">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="browse.js"></script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>KNUST FindIt</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <header>
+      <div class="logo">KNUST <span>FindIt</span></div>
+
+      <nav>
+        <a href="index1.html">Home</a>
+        <a href="browse.html">Browse Items</a>
+        <a href="index1.html?type=lost#reportSection">Report Lost Item</a>
+        <a href="index1.html?type=found#reportSection">Report Found Item</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+
+      <div class="user">Welcome, Student</div>
+    </header>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+      <p class="subtitle">THE KNUST LOST AND FOUND PLATFORM</p>
+
+      <h1>
+        Lost something on campus?
+        <br />
+        <span>FindIt has your back.</span>
+      </h1>
+
+      <p class="description">
+        Lost or found an item on campus? KNUST FindIt connects students to help
+        reunite lost belongings with their rightful owners.
+      </p>
+
+      <!-- Search Bar -->
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for calculators, phones, ID cards..."
+        />
+
+        <button id="searchButton">Search</button>
+      </div>
+
+      <!-- Action Buttons -->
+
+      <div class="hero-buttons">
+        <button class="lost-btn" id="lostButton">I Lost Something</button>
+
+        <button class="found-btn" id="foundButton">I Found Something</button>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+
+    <section class="statistics">
+      <div class="stat-card">
+        <h2>120</h2>
+        <p>Total Items Reported</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>45</h2>
+        <p>Lost Items</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>60</h2>
+        <p>Found Items</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>15</h2>
+        <p>Successfully Returned</p>
+      </div>
+    </section>
+
+    <!-- Recently Reported Items -->
+
+    <section class="recent-items">
+      <div class="section-heading">
+        <div>
+          <h2>Recently Reported Items</h2>
+          <p>Explore the latest lost and found items on campus.</p>
+        </div>
+
+        <a href="browse.html">View All Items →</a>
+      </div>
+
+      <div class="items-container">
+        <!-- Item 1 -->
+
+        <div class="item-card" data-status="found" data-category="phone">
+          <div class="item-image">
+            <img src="images/Capture 1.PNG" alt="Samsung Phone" />
+          </div>
+
+          <div class="item-details">
+            <span class="status found">FOUND</span>
+
+            <h3>Samsung Galaxy Phone</h3>
+
+            <p>📍 Unity Hall</p>
+
+            <p>Black Samsung phone found near the entrance.</p>
+
+            <button class="view-details-btn">View Details</button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+
+        <div class="item-card" data-status="lost" data-category="calculator">
+          <div class="item-image">
+            <img src="images/Capture 2.PNG" alt="Scientific Calculator" />
+          </div>
+
+          <div class="item-details">
+            <span class="status lost">LOST</span>
+
+            <h3>Scientific Calculator</h3>
+
+            <p>📍 Engineering Block</p>
+
+            <p>Casio calculator lost after an afternoon lecture.</p>
+
+            <button class="view-details-btn">View Details</button>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+
+        <div class="item-card" data-status="found" data-category="bag">
+          <div class="item-image">
+            <img src="images/Capture.PNG" alt="Backpack" />
+          </div>
+
+          <div class="item-details">
+            <span class="status found">FOUND</span>
+
+            <h3>Green Bag</h3>
+
+            <p>📍 KNUST Library</p>
+
+            <p>Green bag found on the second floor.</p>
+
+            <button class="view-details-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report Item Form -->
+
+    <section class="report-section" id="reportSection">
+      <h2>Report an Item</h2>
+
+      <p>Provide details about the lost or found item.</p>
+
+      <form id="reportForm">
+        <div class="form-group">
+          <label for="itemTitle">Item Name</label>
+
+          <input
+            type="text"
+            id="itemTitle"
+            placeholder="e.g. Samsung Galaxy Phone"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="itemCategory">Category</label>
+
+          <select id="itemCategory" required>
+            <option value="">Select Category</option>
+            <option>Phone</option>
+            <option>Calculator</option>
+            <option>ID Card</option>
+            <option>Bag</option>
+            <option>Books</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="itemLocation">Campus Location</label>
+
+          <input
+            type="text"
+            id="itemLocation"
+            placeholder="e.g. Main Library"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="itemDescription">Description</label>
+
+          <textarea
+            id="itemDescription"
+            placeholder="Describe the item..."
+            required
+          ></textarea>
+
+          <!-- Item Image Upload -->
+          <div class="form-group">
+            <label for="itemImage">Upload Item Photograph</label>
+
+            <input
+              type="file"
+              id="itemImage"
+              accept="image/*"
+              capture="environment"
+            />
+
+            <img
+              id="imagePreview"
+              alt="Item preview"
+              style="display: none; width: 200px; margin-top: 10px"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Report</button>
+      </form>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item Details | KNUST FindIt</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">KNUST <span>FindIt</span></div>
+
+      <nav>
+        <a href="index1.html">Home</a>
+        <a href="browse.html">Browse Items</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+
+      <div class="user">Welcome, Student</div>
+    </header>
+
+    <main class="item-details-page">
+      <h1>Item Details</h1>
+
+      <div id="itemInformation"></div>
+
+      <!-- Claim Item Button -->
+
+      <button id="claimButton" class="claim-btn" style="display: none">
+        Claim This Item
+      </button>
+
+      <!-- Claim Form -->
+
+      <div class="claim-form" id="claimForm" style="display: none">
+        <h2>Submit Your Claim</h2>
+
+        <p>Please provide your details to help verify ownership.</p>
+
+        <form id="ownershipForm">
+          <div class="form-group">
+            <label for="studentName">Full Name</label>
+            <input type="text" id="studentName" required />
+          </div>
+
+          <div class="form-group">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" required />
+          </div>
+
+          <div class="form-group">
+            <label for="claimReason"
+              >Describe why this item belongs to you</label
+            >
+            <textarea id="claimReason" required></textarea>
+          </div>
+
+          <button type="submit" class="claim-btn">Submit Claim</button>
+        </form>
+      </div>
+
+      <button onclick="history.back()" class="view-details-btn">Go Back</button>
+    </main>
+
+    <script src="item-details.js"></script>
+  </body>
+</html>

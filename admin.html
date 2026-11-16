@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Dashboard | KNUST FindIt</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+
+    <header>
+      <div class="logo">KNUST <span>FindIt</span></div>
+
+      <nav>
+        <a href="index1.html">Home</a>
+        <a href="browse.html">Browse Items</a>
+        <a href="index1.html?type=lost#reportSection">Report Lost Item</a>
+        <a href="index1.html?type=found#reportSection">Report Found Item</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <div class="user">Administrator</div>
+    </header>
+
+    <!-- Dashboard -->
+
+    <main class="admin-dashboard">
+      <div class="admin-heading">
+        <h1>Admin Dashboard</h1>
+        <p>Manage lost and found reports on KNUST campus.</p>
+      </div>
+
+      <!-- Statistics -->
+
+      <section class="admin-stats">
+        <div class="admin-card">
+          <h2 id="totalReports">0</h2>
+          <p>Total Reports</p>
+        </div>
+
+        <div class="admin-card">
+          <h2 id="lostReports">0</h2>
+          <p>Lost Items</p>
+        </div>
+
+        <div class="admin-card">
+          <h2 id="foundReports">0</h2>
+          <p>Found Items</p>
+        </div>
+
+        <div class="admin-card">
+          <h2 id="returnedReports">0</h2>
+          <p>Returned Items</p>
+        </div>
+      </section>
+
+      <!-- Reports Table -->
+
+      <section class="admin-reports">
+        <h2>Recent Reports</h2>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Location</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="reportsTable"></tbody>
+          </table>
+        </div>
+      </section>
+      <!-- Ownership Claims -->
+
+      <section class="admin-reports">
+        <h2>Ownership Claims</h2>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Phone Number</th>
+                <th>Reason</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody id="claimsTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

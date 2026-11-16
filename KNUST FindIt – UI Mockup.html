@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KNUST FindIt – UI Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--green:#047857;--gold:#D97706;--navy:#0F172A;--mint:#ECFDF5;--amber:#FEF3C7;--canvas:#F8FAFC;--card:#fff;--text:#0F172A;--muted:#475569;--line:#E2E8F0;--ribbon-text:#92400E;
+--open-t:#065F46;--open-b:#D1FAE5;--open-l:#A7F3D0;--cl-t:#92400E;--cl-b:#FEF3C7;--cl-l:#FDE68A;--ret-t:#1E40AF;--ret-b:#DBEAFE;--ret-l:#BFDBFE;
+--lost-t:#991B1B;--lost-b:#FEE2E2;--lost-l:#FECACA;--fnd-t:#3730A3;--fnd-b:#E0E7FF;--fnd-l:#C7D2FE;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--canvas:#0B1220;--card:#111A2E;--text:#E2E8F0;--muted:#94A3B8;--line:#1E293B;--mint:#06281F;--amber:#3A2B07;--ribbon-text:#FCD34D;--green:#059669;
+--open-t:#6EE7B7;--open-b:#064E3B;--open-l:#065F46;--cl-t:#FCD34D;--cl-b:#422006;--cl-l:#713F12;--ret-t:#93C5FD;--ret-b:#1E3A8A;--ret-l:#1E40AF;--lost-t:#FCA5A5;--lost-b:#450A0A;--lost-l:#7F1D1D;--fnd-t:#A5B4FC;--fnd-b:#1E1B4B;--fnd-l:#3730A3}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--canvas);color:var(--text);font:400 15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:500;font-size:12px;letter-spacing:.02em}
+header{background:var(--navy);color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:12px 20px}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.01em;margin-right:auto}.logo span{color:#FBBF24}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{color:#CBD5E1;text-decoration:none;padding:6px 12px;border-radius:8px;font-weight:500;font-size:14px}
+nav a.on,nav a:hover{background:var(--green);color:#fff}
+.user{font-size:12px;background:#1E293B;padding:4px 10px;border-radius:99px;color:#E2E8F0}
+.strip{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+.strip a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:99px}
+.strip a.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+main{max-width:1100px;margin:0 auto;padding:24px 20px 64px}
+h1{font-size:20px;line-height:1.25;letter-spacing:-.01em;font-weight:700;margin:0 0 4px}
+h2{font-size:14px;line-height:1.3;font-weight:700;margin:0}
+.display{font-size:clamp(26px,5vw,36px);line-height:1.15;letter-spacing:-.02em;font-weight:800;margin:0 0 8px}
+p{margin:0 0 8px}.muted{color:var(--muted)}
+.hero{background:var(--mint);border:1px solid var(--open-l);border-radius:16px;padding:28px}
+.search{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+input,select,textarea{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.search input{flex:1 1 260px;width:auto}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.btn{font:700 14px "Plus Jakarta Sans",sans-serif;border:1px solid transparent;border-radius:10px;padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.p{background:var(--green);color:#fff}.btn.s{background:var(--card);color:var(--text);border-color:var(--line)}
+.btn.g{background:var(--gold);color:#0F172A}.btn.r{background:#DC2626;color:#fff}.btn[disabled]{opacity:.45;cursor:not-allowed}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.stat b{display:block;font-size:26px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.img{height:120px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--mint),var(--mint) 10px,var(--card) 10px,var(--card) 20px);color:var(--muted);font-size:12px}
+.body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.badges{display:flex;gap:6px}
+.b{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;border:1px solid;letter-spacing:.02em}
+.b.open{color:var(--open-t);background:var(--open-b);border-color:var(--open-l)}.b.claimed{color:var(--cl-t);background:var(--cl-b);border-color:var(--cl-l)}
+.b.returned{color:var(--ret-t);background:var(--ret-b);border-color:var(--ret-l)}.b.lost{color:var(--lost-t);background:var(--lost-b);border-color:var(--lost-l)}
+.b.found{color:var(--fnd-t);background:var(--fnd-b);border-color:var(--fnd-l)}
+.item a.more{margin-top:auto;color:var(--green);font-weight:700;font-size:14px;text-decoration:none}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:20px}
+@media(max-width:760px){.layout,.two{grid-template-columns:1fr!important}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;align-self:start}
+label{font-size:13px;font-weight:700;display:block;margin-bottom:4px}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{flex:1;border:0;background:var(--card);color:var(--text);padding:8px;font:500 13px inherit;font-family:inherit;cursor:pointer}
+.seg button.on{background:var(--green);color:#fff}
+.notice{background:var(--mint);border:1px solid var(--open-l);border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ribbon{background:var(--amber);border:1px solid var(--gold);border-radius:12px;padding:12px 14px;margin-top:16px;color:var(--ribbon-text)}
+.ribbon b{font-family:"JetBrains Mono",monospace}
+.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,.6);display:none;place-items:center;padding:16px;z-index:20}
+.modal-bg.on{display:grid}
+.modal{background:var(--card);border-radius:16px;padding:22px;max-width:520px;width:100%;display:flex;flex-direction:column;gap:12px}
+.warn{background:var(--amber);color:var(--ribbon-text);border-radius:10px;padding:10px 12px;font-size:13px}
+.upload{border:2px dashed var(--green);background:var(--mint);border-radius:12px;padding:22px;text-align:center;color:var(--open-t)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.dashed{border:1px dashed var(--line);border-radius:12px;padding:16px}
+.proof{background:var(--amber);border:1px solid var(--cl-l);border-radius:12px;padding:16px;color:var(--ribbon-text)}
+.toast{margin-top:12px;font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">KNUST <span>FindIt</span></div>
+  <nav aria-label="Main"><a href="#home" data-n="home">Home</a><a href="#browse" data-n="browse">Browse items</a><a href="#post" data-n="post">Post item</a><a href="#admin" data-n="admin">Admin portal</a></nav>
+  <span class="user">Demo: Kwame</span>
+</header>
+<div class="strip" aria-label="Screens">
+  <a href="#home" data-s="home">1 Home</a><a href="#browse" data-s="browse">2 Directory</a><a href="#item" data-s="item">3 Item detail</a>
+  <a href="#claim" data-s="claim">4 Claim modal</a><a href="#post" data-s="post">5 Post item</a><a href="#admin" data-s="admin">6 Admin queue</a>
+</div>
+<main id="app"></main>
+
+<div class="modal-bg" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="modal">
+    <h1 id="mt">Claim item ownership</h1>
+    <div class="warn">Explain secret marks only the true owner would know, such as initials scratched on it, battery clip tape colour, or the exact lock-screen wallpaper.</div>
+    <div><label for="proof">Your detailed ownership proof (minimum 20 characters)</label>
+    <textarea id="proof" rows="4">I can verify this calculator is mine because it has red electrical tape covering the battery lid, and my initials ‘KM’ are etched lightly under the top lip.</textarea>
+    <div class="mono muted" id="count"></div></div>
+    <div class="row" style="justify-content:flex-end"><button class="btn s" id="cancel">Cancel</button><button class="btn p" id="send">Submit claim for security review</button></div>
+    <div class="toast" id="sent" style="display:none;color:var(--open-t)">Claim submitted. Security will review it.</div>
+  </div>
+</div>
+
+<script>
+var ITEMS=[
+{id:1,title:"Casio fx-991EX with Red Tape",type:"found",cat:"Calculator",loc:"Engineering Block B",st:"open",d:"Found on desk after thermodynamics lecture. Distinctive marking on battery lid."},
+{id:2,title:"Casio Scientific Calculator",type:"lost",cat:"Calculator",loc:"Engineering Block B",st:"open",d:"Black casing, left in the 3rd row after an afternoon lecture."},
+{id:3,title:"KNUST Student ID – Blue Lanyard",type:"found",cat:"ID card",loc:"Main Library",st:"open",d:"Found on the 2nd floor reading area."},
+{id:4,title:"iPhone in Dark Blue Case",type:"found",cat:"Phone",loc:"Unity Hall",st:"claimed",d:"Handed in at the JCR area."},
+{id:5,title:"Black Steel Water Bottle",type:"lost",cat:"Bottle",loc:"Great Hall",st:"open",d:"Dented near the bottom, sticker on the side."},
+{id:6,title:"32GB Flash Drive",type:"found",cat:"Flash drive",loc:"Main Library",st:"returned",d:"Returned to the owner at the security post."}];
+var CATS=["Phone","ID card","Calculator","Flash drive","Notebook","Bottle","Bag","Other"];
+var LOCS=["Engineering Block B","Main Library","Great Hall","Unity Hall"];
+var F={type:"all",cat:"",loc:"",st:""};
+var app=document.getElementById("app");
+function badge(t){return '<span class="b '+t+'">'+t.toUpperCase()+'</span>'}
+function card(i){return '<article class="item"><div class="img">Photo: '+i.cat+'</div><div class="body"><div class="badges">'+badge(i.type)+badge(i.st)+'</div><h2>'+i.title+'</h2><div class="muted" style="font-size:13px">📍 '+i.loc+'</div><p class="muted" style="font-size:13px">'+i.d+'</p><a class="more" href="#item">Inspect and claim ownership</a></div></article>'}
+function opts(a,v,all){return '<option value="">'+all+'</option>'+a.map(function(x){return '<option'+(x===v?' selected':'')+'>'+x+'</option>'}).join("")}
+var V={
+home:function(){var n=ITEMS.length,o=ITEMS.filter(function(i){return i.st==="open"}).length;
+return '<section class="hero"><p class="mono" style="color:var(--open-t)">Official KNUST student registry</p><h1 class="display">Lost something on campus? FindIt has your back.</h1><p class="muted">Connecting students, lecturers, security officers and hall porters across KNUST.</p>'+
+'<div class="search"><input aria-label="Search" placeholder="Search lost calculator, ID card, backpack, phone…"><a class="btn p" href="#browse">Search</a></div>'+
+'<div class="row"><a class="btn g" href="#post">I lost something</a><a class="btn p" href="#post">I found something</a><a class="btn s" href="#browse">Browse all items</a></div></section>'+
+'<div class="stats"><div class="stat"><b>'+n+'</b>Total logged items</div><div class="stat"><b>'+o+'</b>Open or unclaimed</div><div class="stat"><b>'+ITEMS.filter(function(i){return i.st==="claimed"}).length+'</b>Under verification</div><div class="stat"><b>'+ITEMS.filter(function(i){return i.st==="returned"}).length+'</b>Returned to students</div></div>'+
+'<h1 style="margin:8px 0 12px">Recently logged items</h1><div class="grid">'+ITEMS.slice(0,3).map(card).join("")+'</div>'},
+browse:function(){var r=ITEMS.filter(function(i){return(F.type==="all"||i.type===F.type)&&(!F.cat||i.cat===F.cat)&&(!F.loc||i.loc===F.loc)&&(!F.st||i.st===F.st)});
+return '<h1>Browse items</h1><p class="muted">Filter by type, category, location and status.</p><div class="layout"><aside class="panel"><div><label>Report type</label><div class="seg" id="seg">'+["all","lost","found"].map(function(t){return '<button data-t="'+t+'" class="'+(F.type===t?'on':'')+'">'+t[0].toUpperCase()+t.slice(1)+'</button>'}).join("")+'</div></div>'+
+'<div><label for="fc">Category</label><select id="fc">'+opts(CATS,F.cat,"All categories")+'</select></div><div><label for="fl">Location</label><select id="fl">'+opts(LOCS,F.loc,"All locations")+'</select></div><div><label for="fs">Status</label><select id="fs"><option value="">All statuses</option><option value="open"'+(F.st==="open"?' selected':'')+'>Open (unclaimed)</option><option value="claimed"'+(F.st==="claimed"?' selected':'')+'>Claimed</option><option value="returned"'+(F.st==="returned"?' selected':'')+'>Returned</option></select></div><button class="btn s" id="reset">Reset filters</button></aside>'+
+'<section><p class="mono muted">Showing '+r.length+' matched item'+(r.length===1?'':'s')+'</p>'+(r.length?'<div class="grid">'+r.map(card).join("")+'</div>':'<div class="dashed"><h2>No items match these filters</h2><p class="muted">Try removing a filter, or post this item yourself.</p></div>')+'</section></div>'},
+item:function(){return '<div class="notice"><b>KNUST security handover policy:</b> found valuables must be surrendered to the nearest hall porter lodge, Security Directorate or SRC Welfare desk within 24 hours.</div><div class="two"><div class="img" style="height:320px;border-radius:12px;border:1px solid var(--line)">High-res photo: Casio fx-991EX</div><div><div class="badges">'+badge("found")+badge("open")+'</div><p class="mono muted" style="margin-top:8px">Reported: 3 Nov 2026</p><h1>Casio fx-991EX Calculator with Red Tape</h1><p>📍 Engineering Block B (Room E204)</p><p class="muted">Found on the 3rd row desk after the afternoon lecture. Black casing, silver buttons. Red tape marking on the back.</p><p class="muted" style="font-size:13px">Deposited with Kofi Boateng, Electrical Engineering</p><a class="btn p" href="#claim">Claim this item</a>'+
+'<div class="ribbon">✨ <b>Smart match detected: 85% match score</b><p style="margin:4px 0 0;font-size:13px">Matches Kwame Mensah’s lost report filed 3 hours earlier: same category, same lecture hall.</p></div></div></div>'},
+post:function(){return '<h1>Post an item</h1><p class="muted">Photos are compressed in your browser before upload.</p><div class="panel" style="max-width:560px"><div class="seg"><button class="on" id="pf">I found this item</button><button id="pl">I lost this item</button></div><div><label for="pt">Item title</label><input id="pt" value="Casio fx-991EX Scientific Calculator"></div><div class="row"><div style="flex:1;min-width:150px"><label>Category</label><select>'+opts(CATS,"Calculator","Choose")+'</select></div><div style="flex:1;min-width:150px"><label>Campus location</label><select>'+opts(LOCS,"Engineering Block B","Choose")+'</select></div></div><div class="upload"><b>📷 Upload photo</b><div style="font-size:12px">Auto-compressed to under 150 KB, 800 px maximum</div></div><button class="btn p" id="rep">Submit campus report</button><div class="toast" id="rt" style="color:var(--open-t)"></div></div>'},
+admin:function(){return '<div class="row" style="justify-content:space-between;margin-bottom:12px"><h1>Security Directorate verification queue</h1><span class="b claimed" id="qc">1 PENDING CLAIM AWAITING REVIEW</span></div><div class="two"><div class="dashed"><h2 style="color:var(--green)">Found item record</h2><p><b>Title</b><br>Casio fx-991EX Calculator with Red Tape</p><p><b>Location</b><br>Engineering Block B, Room E204</p><p><b>Public notes</b><br>Red tape marking on back battery compartment.</p></div><div class="proof"><h2>Claimant secret proof: Kwame Mensah</h2><p style="font-style:italic">“I have red tape on the battery cover and initials ‘KM’ scratched lightly under the stand clip.”</p><div class="row" id="act"><button class="btn p" id="ap">Approve claim</button><button class="btn r" id="rj">Reject</button></div><div class="toast" id="ad"></div></div></div>'}
+};
+function route(){var h=(location.hash||"#home").slice(1);if(!V[h==="claim"?"item":h])h="home";var v=h==="claim"?"item":h;
+app.innerHTML=V[v]();
+document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.dataset.n===v)});
+document.querySelectorAll(".strip a").forEach(function(a){a.classList.toggle("on",a.dataset.s===h)});
+var m=document.getElementById("modal");m.classList.toggle("on",h==="claim");bind(v);window.scrollTo(0,0)}
+function bind(v){
+if(v==="browse"){document.getElementById("seg").onclick=function(e){if(e.target.dataset.t){F.type=e.target.dataset.t;route()}};
+document.getElementById("fc").onchange=function(e){F.cat=e.target.value;route()};document.getElementById("fl").onchange=function(e){F.loc=e.target.value;route()};document.getElementById("fs").onchange=function(e){F.st=e.target.value;route()};
+document.getElementById("reset").onclick=function(){F={type:"all",cat:"",loc:"",st:""};route()}}
+if(v==="post"){var f=document.getElementById("pf"),l=document.getElementById("pl");f.onclick=function(){f.className="on";l.className=""};l.onclick=function(){l.className="on";f.className=""};
+document.getElementById("rep").onclick=function(){document.getElementById("rt").textContent="Report submitted. We will alert you if there is a match."}}
+if(v==="admin"){document.getElementById("ap").onclick=function(){done("Claim approved. Item marked ready for pickup at the security desk.")};document.getElementById("rj").onclick=function(){done("Claim rejected. The claimant has been notified.")}}}
+function done(t){document.getElementById("act").style.display="none";document.getElementById("ad").textContent=t;var q=document.getElementById("qc");q.textContent="QUEUE CLEAR";q.className="b open"}
+var ta=document.getElementById("proof"),ct=document.getElementById("count"),sd=document.getElementById("send");
+function upd(){var n=ta.value.length,ok=n>=20;ct.textContent=n+" / 20 characters minimum"+(ok?" · valid":" · too short");ct.style.color=ok?"var(--open-t)":"var(--lost-t)";sd.disabled=!ok}
+ta.oninput=upd;upd();
+document.getElementById("cancel").onclick=function(){location.hash="#item"};
+sd.onclick=function(){document.getElementById("sent").style.display="block"};
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
