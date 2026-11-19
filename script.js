@@ -87,9 +87,9 @@ reportForm.addEventListener("submit", function(event) {
         return;
     }
 
-    if (imageFile && imageFile.size > 2 * 1024 * 1024) {
-        alert("Please choose an image smaller than 2 MB.");
-        return;
+    if (imageFile && imageFile.size > 5 * 1024 * 1024) {
+    alert("Please choose an image smaller than 5 MB.");
+    return;
     }
 
     const report = {
