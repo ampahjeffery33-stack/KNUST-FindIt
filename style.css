@@ -975,3 +975,19 @@ th, td {
     }
 
 }
+
+@media (max-width: 600px) {
+
+    header {
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .menu-toggle {
+        margin-left: auto;
+    }
+
+}
