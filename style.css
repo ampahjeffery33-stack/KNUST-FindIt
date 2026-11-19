@@ -775,162 +775,7 @@ th {
     display: block;
 }
 
-/* Responsive Design for Mobile Devices */
-/*Header */
-header {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
-}
-
-.logo img {
-    width: 150px;
-    height: 60px;
-}
-
-nav{
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-nav a {
-    font-size: 13px;
-}
-
-/*Hero Section */
-.hero {
-    margin: 15px;
-    padding: 35px 15px;
-}
-
-.hero h1 {
-    font-size: 27px;
-}
-
-.description{
-    font-size: 14px;
-}
-
-/*Search */
-.search-box,
-.browse-search {
-    flex-direction: column;
-    width: 100%;
-}
-
-.search-box button,
-.browse-search button {
-    width: 100%;
-}
-
-/*Hero Buttons */
-.hero-buttons {
-    flex-direction: column;
-}
-
-.hero-buttons button{
-    width:auto; 
-}
-
-/* Statistics Section */
-.statistics {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 20px 15px;
-}
-
-.stat-card {
-    padding: 18px 10px;
-}
-
-.stat-card h2 {
-    font-size: 25px;
-}
-
-/* Recently Reported Items */
-.recent-items {
-    margin: 30px 15px;
-}
-
-.items-container {
-    grid-template-columns:1fr;
-    gap: 20px;
-}
-
-.section-heading {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-/* Browse Page */
-.browse-section {
-    padding: 20px 15px;
-}
-
-.browse-heading h1 {
-    font-size: 26px;
-}
-
-.filter-section {
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.filter-group select {
-    width: 100%;
-}
-
-.browse-items-container {
-    grid-template-columns: 1fr;
-}
-
-/* Report Form */
-.report-section {
-    margin: 20px 15px;
-    padding: 20px;
-}
-
-/* Item Details Page */
-.item-details-page {
-    margin: 20px 15px;
-    padding: 15px;
-}
-
-.claim-from{
-    padding: 20px;
-}
-
-/* Admin Dashboard */
-.admin-dashboard {
-    padding: 20px 15px;
-}
-
-.admin-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.admin-card {
-    padding: 15px;
-}
-
-.admin-card h2 {
-    font-size: 24px;
-}
-
-.admin-reports {
-    padding: 15px;
-}
-
-th, td {
-    padding: 10px;
-    font-size: 12px;
-}
-
-/* HAMBURGER MENU */
+/* MOBILE RESPONSIVENESS */
 
 .menu-toggle {
     display: none;
@@ -941,19 +786,32 @@ th, td {
     cursor: pointer;
 }
 
+/* MOBILE DEVICES */
+
 @media (max-width: 600px) {
 
+    /* Header */
     header {
-        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         padding: 15px;
+        gap: 10px;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .logo img {
+        width: 150px;
+        height: 60px;
     }
 
     .menu-toggle {
         display: block;
+        margin-left: auto;
     }
 
     nav {
@@ -969,52 +827,143 @@ th, td {
         display: flex;
     }
 
+    nav a {
+    font-size: 13px;
+    }
+
     .user {
         width: 100%;
         text-align: center;
     }
 
-}
-
-@media (max-width: 600px) {
-
-    header {
-        justify-content: space-between;
+    /* Hero */
+    .hero {
+        margin: 15px;
+        padding: 35px 15px;
     }
 
-    .logo {
-        margin-right: auto;
+    .hero h1 {
+        font-size: 27px;
     }
 
-    .menu-toggle {
-        margin-left: auto;
+    .description {
+        font-size: 14px;
     }
 
-}
-
-/* DESKTOP HEADER */
-
-@media (min-width: 601px) {
-
-    header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    /* Search */
+    .search-box,
+    .browse-search {
+        flex-direction: column;
+        width: 100%;
     }
 
-    .menu-toggle {
-        display: none;
+    .search-box button,
+    .browse-search button {
+        width: 100%;
     }
 
-    nav {
-        display: flex;
-        flex-direction: row;
-        gap: 25px;
+    /* Buttons */
+    .hero-buttons {
+        flex-direction: column;
     }
 
-    .user {
-        display: block;
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    /* Statistics */
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin: 20px 15px;
+    }
+
+    .stat-card {
+        padding: 18px 10px;
+    }
+
+    .stat-card h2 {
+        font-size: 25px;
+    }
+
+    /* Recent Items */
+    .recent-items {
+        margin: 30px 15px;
+    }
+
+    .items-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    /* Browse */
+    .browse-section {
+        padding: 20px 15px;
+    }
+
+    .browse-heading h1 {
+        font-size: 26px;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .filter-group select {
+        width: 100%;
+    }
+
+    .browse-items-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Forms */
+    .report-section {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+
+    .item-details-page {
+        margin: 20px 15px;
+        padding: 15px;
+    }
+
+    .claim-form {
+        padding: 20px;
+    }
+
+    /* Admin */
+    .admin-dashboard {
+        padding: 20px 15px;
+    }
+
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .admin-card {
+        padding: 15px;
+    }
+
+    .admin-card h2 {
+        font-size: 24px;
+    }
+
+    .admin-reports {
+        padding: 15px;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 12px;
     }
 
 }
