@@ -757,9 +757,20 @@ th {
     cursor: pointer;
 }
 
-.logo img{
-    width: 180px;
-    height: 65x;
-    object-fit: constain;
+/*LOGO*/
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: inline-block;
+}
+
+.logo img {
+    width: 150px;
+    height: 65px;
+    object-fit: contain;
     display: block;
 }
